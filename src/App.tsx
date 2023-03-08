@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Card from "./typescript/components";
+import styled from "styled-components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Container>
+          <MobileContainer>
+              <Card title={"MAIN"} content={"JAVA"}/>
+          </MobileContainer>
+      </Container>
   );
 }
+
+const Container = styled.div`
+  background-color: rgba(200, 200, 200, 0.2);
+  width: 100vw;
+  // height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Pretendard;
+`
+
+const MobileContainer = styled.div`
+  width: 420px;
+  min-height: 100vh;
+  background-color: white;
+  position: relative;
+  overflow-x: hidden;
+  @media screen and (max-width: 420px) {
+    width: 100vw;
+  }
+`
 
 export default App;
