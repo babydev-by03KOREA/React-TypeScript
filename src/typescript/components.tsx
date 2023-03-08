@@ -17,7 +17,7 @@ const arr = [
 // const Card = ({title}: CardProps) => {
 const Card = () => {
     /**
-    * [getter, setter]
+    * [0, f]
     * @type job: number[] 타입 상태, setJob: 상태 변경 함수
     */
     const [job, setJob] = useState<number[]>([]);
@@ -26,16 +26,24 @@ const Card = () => {
         /* onClick 이라는 함수를 정의하고 data number 타입 인자를 받습니다. */
         if (job.includes(data)) {
             /** @if (onClick 함수 내에서 job 배열에 data가 포함되어 있으면) job 배열에서 data를 제거하고 setJob 함수로 상태를 업데이트합니다. */
+            /** @on
+             * setJob 함수를 호출하면 job `배열`값이 바뀝니다. / (item 매개변수값이 data 와 다른지 비교하여 boolean return)
+             * data === job 요소를 배열에서 제거 후 setJob에 전달하면 job 상태가 업데이트되고 컴포넌트가 reRendering
+             * filter: true 반환 요소만 필터링하여 새로운 배열로 반환
+            */
             setJob(job.filter(item => item !== data));
         } else {
+            /** @off */
             /** @else (job 배열에 data가 포함되어 있지 않으면) job 배열에 data를 추가하고 setJob 함수로 상태를 업데이트 합니다. */
             setJob([...job, data]);
         }
     };
 
     return (
-        <>
+        <React.Fragment>
             {
+                /** map 메서드로 순회하면서 각 요소마다 컴포넌트 생성중. key=React Array Index, className=job 배열에 elem.data 포함여부에 따라 스타일 새로지정
+                 *  elem=배열의 각 요소를 나타내는 매개변수*/
                 arr.map((elem, index) => (
                     <CheckBoxComponents key={index}
                                         className={job.includes(elem.data) ? "btn-edge-on" : "btn-edge-off"}>
@@ -45,7 +53,7 @@ const Card = () => {
                     </CheckBoxComponents>
                 ))
             }
-        </>
+        </React.Fragment>
 
     );
 };
