@@ -1,15 +1,23 @@
-import React from 'react';
+import React from "react";
 import Card from "./typescript/components";
 import styled from "styled-components";
+import {ChakraProvider} from "@chakra-ui/react";
+import { ThemeProvider } from '@emotion/react'
+import {extendedTheme, theme} from "./style";
 
 function App() {
-  return (
-      <Container>
-          <MobileContainer>
-              <Card title={"MAIN"} content={"JAVA"}/>
-          </MobileContainer>
-      </Container>
-  );
+    return (
+        <Container>
+            <MobileContainer>
+                <ThemeProvider theme={theme}>
+                    <ChakraProvider theme={extendedTheme}>
+                        <Card/>
+                    </ChakraProvider>
+                </ThemeProvider>
+            </MobileContainer>
+        </Container>
+
+    );
 }
 
 const Container = styled.div`
@@ -20,7 +28,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   font-family: Pretendard;
-`
+`;
 
 const MobileContainer = styled.div`
   width: 420px;
@@ -31,6 +39,6 @@ const MobileContainer = styled.div`
   @media screen and (max-width: 420px) {
     width: 100vw;
   }
-`
+`;
 
 export default App;
