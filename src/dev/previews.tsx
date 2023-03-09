@@ -3,6 +3,8 @@ import {ComponentPreview, Previews} from "@react-buddy/ide-toolbox";
 import {PaletteTree} from "./palette";
 import App from "../App";
 import Card from "../typescript/components";
+import Join from "../typescript/join";
+import AnodtherJoin from "../typescript/AnodtherJoin";
 
 const ComponentPreviews = () => {
     return (
@@ -12,6 +14,12 @@ const ComponentPreviews = () => {
             </ComponentPreview>
             <ComponentPreview path="/Card">
                 <Card/>
+            </ComponentPreview>
+            <ComponentPreview path="/Join">
+                <Join/>
+            </ComponentPreview>
+            <ComponentPreview path="/AnodtherJoin">
+                <AnodtherJoin/>
             </ComponentPreview>
         </Previews>
     );

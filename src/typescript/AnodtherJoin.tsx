@@ -1,18 +1,21 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 
-const Join = () => {
+const AnodtherJoin = () => {
 
-    const [id, setId] = useState("");
-    const [pwd, setPwd] = useState("");
+    const [inputs, setInputs] = useState({
+        id: '',
+        pwd: '',
+    });
 
-    const onChangeID = (e: React.ChangeEvent<HTMLInputElement>) => {
-        /* nullable 가능성 존재 */
-        setId(e.target.value);
-    };
+    const {id, pwd} = inputs;
 
-    const onChangePWD = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPwd(e.target.value);
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {value, name} = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value
+        });
     };
 
     return (
@@ -20,13 +23,11 @@ const Join = () => {
             <JoinWelcome>회원가입</JoinWelcome>
             <InputBox>
                 <SubTitle>ID를 입력하세요.</SubTitle>
-                {/* value={id} > 있어도 되고 없어도 작동한다! */}
-                <InputForm onChange={onChangeID} />
+                <InputForm onChange={onChange} value={id} name="id" />
             </InputBox>
             <InputBox>
                 <SubTitle>PWD를 입력하세요.</SubTitle>
-                {/* value={pwd} > 있어도 되고 없어도 작동한다! */}
-                <InputForm  onChange={onChangePWD} type={"password"} />
+                <InputForm type={"password"} onChange={onChange} value={pwd} name="pwd" />
             </InputBox>
             <InputBox>
                 <SubTitle>입력한 ID</SubTitle>
@@ -71,4 +72,4 @@ const InputForm = styled.input`
   border: 1px solid #CBD5E0;
 `;
 
-export default Join;
+export default AnodtherJoin;
