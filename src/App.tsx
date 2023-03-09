@@ -1,17 +1,35 @@
-import React from "react";
-import Card from "./typescript/components";
+import React, {useState} from "react";
+// import Card from "./typescript/components";
 import styled from "styled-components";
 import {ChakraProvider} from "@chakra-ui/react";
 import { ThemeProvider } from '@emotion/react'
 import {extendedTheme, theme} from "./style";
+import State from "./typescript/state";
+import SelectBox from "./typescript/SelectBox";
+
+const checkArray = [
+    {data: 0, text: "대학생"},
+    {data: 1, text: "대학원생"},
+    {data: 2, text: "취준생"},
+    {data: 3, text: "직장인"},
+];
+
+const selectArray = [
+    {data:0, text:"유쌍"},
+    {data:1, text:"무쌍"}
+];
 
 function App() {
+    const [job, setJob] = useState<number[]>([]);
+    const [select, setSelected] = useState<number>(-1);
+    /*DefaultValue > [[getter],[setter]]*/
     return (
         <Container>
             <MobileContainer>
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
-                        <Card/>
+                        {/*<State arr={checkArray} item={job} setItem={setJob} />*/}
+                        <SelectBox textArr={selectArray} item={select} setItem={setSelected}/>
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
