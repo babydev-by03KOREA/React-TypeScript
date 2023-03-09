@@ -6,6 +6,7 @@ import { ThemeProvider } from '@emotion/react'
 import {extendedTheme, theme} from "./style";
 import State from "./typescript/state";
 import SelectBox from "./typescript/SelectBox";
+import Join from "./typescript/join";
 
 const checkArray = [
     {data: 0, text: "대학생"},
@@ -29,7 +30,8 @@ function App() {
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
                         {/*<State arr={checkArray} item={job} setItem={setJob} />*/}
-                        <SelectBox textArr={selectArray} item={select} setItem={setSelected}/>
+                        {/*<SelectBox textArr={selectArray} item={select} setItem={setSelected}/>*/}
+                        <Join/>
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
