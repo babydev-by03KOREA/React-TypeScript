@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 
-const UseRef = () => {
+const ResetRef = () => {
     /* [useRef] > 외부 라이브러리, 직접 DOM 선택 필요 시 `ref` 사용 */
     const [inputs, setInputs] = useState({
         id: "",
@@ -76,6 +76,7 @@ const SubTitle = styled.span`
   //top: -25px;
   font-family: 'Pretendard';
   font-size: 15px;
+  padding: 3px;
 `;
 
 const InputValue = styled.p``;
@@ -114,4 +115,4 @@ const InputForm = styled.input`
   border: 1px solid #CBD5E0;
 `;
 
-export default UseRef;
+export default ResetRef;

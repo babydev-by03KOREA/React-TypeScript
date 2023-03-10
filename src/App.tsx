@@ -1,14 +1,13 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 // import Card from "./typescript/components";
 import styled from "styled-components";
 import {ChakraProvider} from "@chakra-ui/react";
-import { ThemeProvider } from '@emotion/react'
+import {ThemeProvider} from "@emotion/react";
 import {extendedTheme, theme} from "./style";
-import State from "./typescript/state";
-import SelectBox from "./typescript/SelectBox";
-import Join from "./hooks/join";
-import AnodtherJoin from "./hooks/AnodtherJoin";
-import UseRef from "./hooks/UseRef";
+import Join from "./hooks/join/join";
+import UserList from "./hooks/arrays/UserList";
+import CreateUser from "./hooks/useRef/CreateUser";
+
 
 const checkArray = [
     {data: 0, text: "대학생"},
@@ -18,27 +17,78 @@ const checkArray = [
 ];
 
 const selectArray = [
-    {data:0, text:"유쌍"},
-    {data:1, text:"무쌍"}
+    {data: 0, text: "유쌍"},
+    {data: 1, text: "무쌍"}
 ];
 
 function App() {
+    const [inputs, setInputs] = useState({
+        username: "",
+        email: ""
+    });
+
+    const {username, email} = inputs;
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value
+        });
+    };
+
+    const [users, setUsers] = useState([
+        {
+            id: 1,
+            username: "velopert",
+            email: "public.velopert@gmail.com"
+        },
+        {
+            id: 2,
+            username: "tester",
+            email: "tester@example.com"
+        },
+        {
+            id: 3,
+            username: "liz",
+            email: "liz@example.com"
+        }
+    ]);
+
     const [job, setJob] = useState<number[]>([]);
     const [select, setSelected] = useState<number>(-1);
-    /*DefaultValue > [[getter],[setter]]*/
+    const nextId = useRef(4);
+    const onCreate = () => {
+        const user = {
+            id: nextId.current,
+            username,
+            email
+        };
+        setUsers(users.concat(user));
+
+        setInputs({
+            username: "",
+            email: ""
+        });
+        nextId.current += 1;
+    };
+
     return (
         <Container>
             <MobileContainer>
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
-                        {/*<State arr={checkArray} item={job} setItem={setJob} />*/}
-                        {/*<SelectBox textArr={selectArray} item={select} setItem={setSelected}/>*/}
-                        <UseRef />
+                        <CreateUser
+                            username={username}
+                            email={email}
+                            onCreate={onCreate}
+                            onChange={onChange}
+                        />
+                        <UserList users={users}/>
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
         </Container>
-
     );
 }
 

@@ -38,7 +38,7 @@ const Card = () => {
     return (
         <React.Fragment>
             {
-                /** map 메서드로 순회하면서 각 요소마다 컴포넌트 생성중. key=React Array Index, className=job 배열에 elem.data 포함여부에 따라 스타일 새로지정
+                /** map 메서드로 순회하면서 각 요소마다 컴포넌트 생성중. key=React arrays Index, className=job 배열에 elem.data 포함여부에 따라 스타일 새로지정
                  *  elem=배열의 각 요소를 나타내는 매개변수*/
                 arr.map((elem, index) => (
                     <CheckBoxComponents key={index}
