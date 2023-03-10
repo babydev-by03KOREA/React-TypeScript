@@ -2,9 +2,9 @@ import React from "react";
 import {ComponentPreview, Previews} from "@react-buddy/ide-toolbox";
 import {PaletteTree} from "./palette";
 import App from "../App";
-import Card from "../typescript/components";
-import Join from "../typescript/join";
-import AnodtherJoin from "../typescript/AnodtherJoin";
+import Card from "../hooks/components";
+import Join from "../hooks/join";
+import AnodtherJoin from "../hooks/AnodtherJoin";
 
 const ComponentPreviews = () => {
     return (

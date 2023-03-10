@@ -9,11 +9,19 @@ const AnodtherJoin = () => {
     });
 
     const {id, pwd} = inputs;
-
+    /** @React [React.ChangeEvent] > React 특정 종류의 이벤트(값변경)에 대한 타입 정의
+     *  @Vanilla [EventListener] > DOM 에서 다양한 종류의 이벤트에 대한 함수를 등록 가능한 메소드 */
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        /* e.target == id input 요소를 가리킴 */
+        console.log("target",e.target)
+        /** @value 이벤트 리스너의 target 으로 name, value 추출
+         *  @value 는 입력된 값, @name 은 "id"
+         *  value, name 모두 정의되어져 있는 값임 */
         const {value, name} = e.target;
         setInputs({
+            /* inputs 상태의 id key 에 value 할당 */
             ...inputs,
+            /* [name] == [id] */
             [name]: value
         });
     };

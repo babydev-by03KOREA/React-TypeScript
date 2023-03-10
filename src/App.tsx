@@ -6,8 +6,9 @@ import { ThemeProvider } from '@emotion/react'
 import {extendedTheme, theme} from "./style";
 import State from "./typescript/state";
 import SelectBox from "./typescript/SelectBox";
-import Join from "./typescript/join";
-import AnodtherJoin from "./typescript/AnodtherJoin";
+import Join from "./hooks/join";
+import AnodtherJoin from "./hooks/AnodtherJoin";
+import UseRef from "./hooks/UseRef";
 
 const checkArray = [
     {data: 0, text: "대학생"},
@@ -32,7 +33,7 @@ function App() {
                     <ChakraProvider theme={extendedTheme}>
                         {/*<State arr={checkArray} item={job} setItem={setJob} />*/}
                         {/*<SelectBox textArr={selectArray} item={select} setItem={setSelected}/>*/}
-                        <AnodtherJoin/>
+                        <UseRef />
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
