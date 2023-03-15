@@ -1,8 +1,8 @@
-import React from 'react';
-import ArrayRander from "../arrays/ArrayRander";
+import React from 'react'
+import ArrayRander from '../arrays/ArrayRander'
 
 const MakeVar = () => {
-    <ArrayRander />
-};
+  ;<ArrayRander />
+}
 
-export default MakeVar;
+export default MakeVar

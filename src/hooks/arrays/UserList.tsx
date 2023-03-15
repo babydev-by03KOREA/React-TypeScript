@@ -1,29 +1,27 @@
-import React from 'react';
+import React from 'react'
 
 type User = {
-    id: number;
-    username: string,
-    email: string
+  id: number
+  username: string
+  email: string
 }
 
-const User = ({ user }: {user:User}) => {
-    return (
-        <div>
-            <b>{user.username}</b> <span>({user.email})</span>
-        </div>
-    );
-};
-
-const UserList = ({ users }: {users:User[]}) => {
-    return (
-        <div>
-            {
-                users.map(user => (
-                    <User user={user} key={user.id} />
-                ))
-            }
-        </div>
-    );
+const User = ({ user }: { user: User }) => {
+  return (
+    <div>
+      <b>{user.username}</b> <span>({user.email})</span>
+    </div>
+  )
 }
 
-export default UserList;
+const UserList = ({ users }: { users: User[] }) => {
+  return (
+    <div>
+      {users.map((user) => (
+        <User user={user} key={user.id} />
+      ))}
+    </div>
+  )
+}
+
+export default UserList
