@@ -8,7 +8,8 @@ import Join from './hooks/join/join'
 import UserList from './hooks/arrays/UserList'
 import CreateUser from './hooks/useRef/CreateUser'
 import RadioButton from './components/Radio'
-import ShopList from "./components/ShopList";
+import ShopList from "./personal/ShopList";
+import AnimalButton from "./components/AnimalButton";
 
 const checkArray = [
   { data: 0, text: '대학생' },
@@ -23,10 +24,10 @@ const selectArray = [
 ]
 
 const wantDating = [
-  { id: '1번', text: '1번' },
-  { id: '2번', text: '2번' },
-  { id: '3번', text: '3번' },
-  { id: '4번 이상', text: '4번 이상' },
+  { id: '1번', text: '1번', ml: -3 },
+  { id: '2번', text: '2번', ml: 62 },
+  { id: '3번', text: '3번', ml: 60 },
+  { id: '4번 이상', text: '4번 이상', ml: 48 },
 ]
 
 function App() {
@@ -88,11 +89,12 @@ function App() {
       <MobileContainer>
         <ThemeProvider theme={theme}>
           <ChakraProvider theme={extendedTheme}>
-            <RadioButton
-              labelArr={wantDating}
-              checked={check}
-              onChange={setCheck}
-            />
+            {/*<RadioButton*/}
+            {/*  labelArr={wantDating}*/}
+            {/*  checked={check}*/}
+            {/*  onChange={setCheck}*/}
+            {/*/>*/}
+            <AnimalButton/>
           </ChakraProvider>
         </ThemeProvider>
       </MobileContainer>

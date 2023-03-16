@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 type labelArr = {
-    id: string
-    text: string
+    id: string;
+    text: string;
+    ml: number;
 }
 
 type Props = {
@@ -33,10 +34,11 @@ const RadioButton = ({labelArr, checked, onChange}: Props) => {
                 ))}
             </Box>
             <TextBox>
+                {/*ml 값을 리스트에 저장 */}
                 {
                     labelArr.map((item) => (
                         <div key={item.id}>
-                            <TextP>{item.text}</TextP>
+                            <TextP ml={item.ml}>{item.text}</TextP>
                         </div>
                     ))
                 }
@@ -68,19 +70,24 @@ const Bar = styled.div`
 `;
 
 const TextBox = styled.div`
-  width: 100%;
-  position: relative;
-  top: 16px;
+  height: 20px;
+  margin-top: 16px;
+  padding-left: calc(50% - 360px / 2 + 52px);
+  padding-right: calc(50% - 360px / 2);
   display: flex;
   flex-direction: row;
-  margin: auto;
-  justify-content: space-evenly;
-  /*문득 생각난건데 Bar 기준으로 justify Content 짜면 딱 맞을거 같지 않음?*/
 `;
 
-const TextP = styled.p`
+const TextP = styled.p<{ml: number}>`
+  height: 16px;
   font-family: 'Pretendard';
   font-size: 14px;
+  margin-left: ${(props) => props.ml}px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  color: black;
 `;
 
 const InputBox = styled.div`
