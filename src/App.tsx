@@ -24,6 +24,7 @@ import {
     animal11,
     animal12
 } from "./yeonpick/Animal";
+import Store from "./store";
 
 const checkArray = [
     {id: 0, text: "대학생"},
@@ -120,7 +121,7 @@ function App() {
             <MobileContainer>
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
-                        <AnimalButton animalArr={animalArray} item={animalCheck} setItem={animalChecked}/>
+                        <Store page="스토어" />
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
