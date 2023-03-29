@@ -60,6 +60,13 @@ const animalArray = [
     {id:12, text: "호랑이", root: animal12},
 ];
 
+const pointArray = [
+    {id:1, point:"3,000", real:"₩ 3,000"},
+    {id:2, point:"10,000", real:"₩ 10,000"},
+    {id:3, point:"20,000", real:"₩ 19,000"},
+    {id:4, point:"30,000", real:"₩ 27,000"}
+];
+
 function App() {
     const [inputs, setInputs] = useState({
         username: "",
@@ -121,7 +128,7 @@ function App() {
             <MobileContainer>
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
-                        <Store page="스토어" />
+                        <Store page="스토어" array={pointArray} />
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import {ChevronLeftIcon} from "@chakra-ui/icons";
 
@@ -6,14 +6,12 @@ type Props = {
     text: string
 }
 
-const BackBar = ({ text }:Props) => {
+const BackBar = ({text}: Props) => {
     return (
-        <React.Fragment>
-            <BackMainBox>
-                <ChevronLeftIcon boxSize={6} />
-                <BackSpan>{text}</BackSpan>
-            </BackMainBox>
-        </React.Fragment>
+        <BackMainBox>
+            <ChevronLeftIcon boxSize={6}/>
+            <BackSpan>{text}</BackSpan>
+        </BackMainBox>
     );
 };
 
@@ -21,7 +19,7 @@ const BackMainBox = styled.div`
   position: relative;
   width: 104px;
   height: 28px;
-  left: calc(50% - 104px/2 - 80px);
+  left: calc(50% - 104px / 2 - 80px);
   top: 48px;
 `;
 
