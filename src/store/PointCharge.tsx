@@ -1,20 +1,23 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import {charge, coin} from "../yeonpick/Coin";
 
 type Props = {
-  price: string,
-  realPrice: string,
+    price: string,
+    realPrice: string,
 };
 
-const PointCharge = ({ price, realPrice } : Props) => {
+const PointCharge = ({price, realPrice}: Props) => {
     return (
         <ChargeButtonMain>
-            <ChargeImage src={charge} />
+            <ChargeImage src={charge}/>
             <PointBox>
                 <CoinImage src={coin}/>
                 <CoinPrice>{price}</CoinPrice>
             </PointBox>
+            <PayBox>
+                <PayPrice>{realPrice}</PayPrice>
+            </PayBox>
         </ChargeButtonMain>
     );
 };
@@ -38,27 +41,20 @@ const ChargeImage = styled.img`
 `;
 
 const PointBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  gap: 4px;
-  position: absolute;
-  width: 65px;
   height: 24px;
-  left: 27px;
+  position: absolute;
+  left: 24px;
   top: 72px;
+  display: flex;
+  align-items: center;
 `;
 
 const CoinImage = styled.img`
   width: 16px;
   height: 16px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 `;
 
-const CoinPrice = styled.div`
+const CoinPrice = styled.p`
   width: 55px;
   height: 24px;
   font-family: 'Pretendard';
@@ -67,9 +63,32 @@ const CoinPrice = styled.div`
   font-size: 16px;
   line-height: 24px;
   color: #000000;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+`;
+
+const PayBox = styled.div`
+  position: absolute;
+  width: 72px;
+  height: 24px;
+  left: 24px;
+  top: 104px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+`;
+
+const PayPrice = styled.p`
+  position: absolute;
+  width: 51px;
+  height: 18px;
+  left: 10px;
+  top: 3px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  justify-content: center;
+  color: #000000;
 `;
 
 export default PointCharge;

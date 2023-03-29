@@ -25,6 +25,7 @@ import {
     animal12
 } from "./yeonpick/Animal";
 import Store from "./store";
+import {coffee, coin, plus} from "./yeonpick/Coin";
 
 const checkArray = [
     {id: 0, text: "대학생"},
@@ -60,11 +61,21 @@ const animalArray = [
     {id:12, text: "호랑이", root: animal12},
 ];
 
-const pointArray = [
+const chargeArray = [
     {id:1, point:"3,000", real:"₩ 3,000"},
     {id:2, point:"10,000", real:"₩ 10,000"},
     {id:3, point:"20,000", real:"₩ 19,000"},
     {id:4, point:"30,000", real:"₩ 27,000"}
+];
+
+const buyArray = [
+    {id:1, img:plus, title:"선택조건 추가", description:"매칭에 반영할 이상형의 조건을 1개 더 추가해요", point:3000},
+    {id:2, img:coffee, title:"스벅 아메리카노", description:"포인트를 기프티콘으로 교환할 수 있어요", point:4000},
+];
+
+const collectArray = [
+    {id:1, img:coin, title:"연픽에서 리뷰 쓰기", price:"500" },
+    {id:2, img:coin, title:"추천한 친구가 가입하면", price:"2,000" },
 ];
 
 function App() {
@@ -128,7 +139,7 @@ function App() {
             <MobileContainer>
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
-                        <Store page="스토어" array={pointArray} />
+                        <Store page="스토어" chargeArray={chargeArray} buyArray={buyArray} collectArray={collectArray} />
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
