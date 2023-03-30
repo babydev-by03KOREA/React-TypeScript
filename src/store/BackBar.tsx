@@ -19,14 +19,13 @@ const BackMainBox = styled.div`
   position: relative;
   width: 104px;
   height: 28px;
-  //left: calc(50% - 104px / 2 - 80px);
-  left: calc(50% - 360px/2 + 48px);
-  top: 48px;
+  margin-left: calc(50% - 360px/2 + 48px);
+  margin-top: 48px;
 `;
 
 const BackSpan = styled.p`
   position: absolute;
-  width: 47px;
+  width: 100%;
   height: 28px;
   left: 37px;
   top: 0;
