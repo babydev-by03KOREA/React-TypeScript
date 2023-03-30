@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
 type Props = {
-  title: string,
+    title: string,
 };
 
-const PriorityCase = ({ title }:Props) => {
+const PriorityCase = ({title}: Props) => {
     return (
-      <MainLowerBox>
-          <LowerTitleBox>{title}</LowerTitleBox>
-      </MainLowerBox>
+        <MainLowerBox>
+            <LowerTitleBox>{title}</LowerTitleBox>
+        </MainLowerBox>
     );
 };
 
 const MainLowerBox = styled.div`
-  position: relative; 
+  position: relative;
   width: 270px;
   height: 38px;
   background: rgba(0, 0, 0, 0.04);

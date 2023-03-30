@@ -20,9 +20,10 @@ type Props = {
     lowerArray: LowerArray[],
     upperArray: UpperArray[],
     title: string,
+    id: number,
 };
 
-const Priority = ({title, lowerArray, upperArray}: Props) => {
+const Priority = ({title, lowerArray, upperArray, id}: Props) => {
     return (
         <React.Fragment>
             <BackBar text={title}/>
@@ -33,18 +34,16 @@ const Priority = ({title, lowerArray, upperArray}: Props) => {
             <TitleBox>우선순위가 낮아져요</TitleBox>
             <PriorityLowerUpperBox>
                 {
-                    lowerArray.map((elem, index) => (
-                        <PriorityCase key={index} title={elem.title} />
-                    ))
+                    lowerArray.filter(elem => elem.id === 3 || elem.id === id)
+                        .map((elem, index) => <PriorityCase key={index} title={elem.title} />)
                 }
             </PriorityLowerUpperBox>
             <Margin type={"marginFourEightDiv"}/>
             <TitleBox>우선순위가 높아져요</TitleBox>
             <PriorityLowerUpperBox>
                 {
-                    upperArray.map((elem, index) => (
-                        <PriorityCase key={index} title={elem.title}/>
-                    ))
+                    upperArray.filter(elem => elem.id === 3 || elem.id === id)
+                        .map((elem, index) => <PriorityCase key={index} title={elem.title} />)
                 }
             </PriorityLowerUpperBox>
             <Margin type={"marginBottomPage"}/>

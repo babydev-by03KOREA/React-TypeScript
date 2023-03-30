@@ -88,9 +88,10 @@ const lowerArray = [
 ];
 
 const upperArray = [
-    {id: 1, title: "🙂 프로필 Good 평가 2회"},
-    {id: 1, title: "🙂 학교인증 & 자기소개 150자 이상"},
+    {id: 3, title: "🙂 프로필 Good 평가 2회"},
+    {id: 3, title: "🙂 학교인증 & 자기소개 150자 이상"},
     {id: 1, title: "🙂 친구추천 1회"},
+    {id: 2, title: "🙂 매칭 시 사용되는 포인트를 미리 충전해둔 경우"},
 ];
 
 function App() {
@@ -156,7 +157,7 @@ function App() {
             <MobileContainer>
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
-                        <Priority title={"우선순위란?"} lowerArray={lowerArray} upperArray={upperArray}/>
+                        <Priority title={"우선순위란?"} lowerArray={lowerArray} upperArray={upperArray} id={1}/>
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
@@ -167,7 +168,6 @@ function App() {
 const Container = styled.div`
   background-color: rgba(200, 200, 200, 0.2);
   width: 100vw;
-  // height: calc(var(--vh, 1vh) * 100);
   display: flex;
   align-items: center;
   justify-content: center;
