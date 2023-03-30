@@ -1,5 +1,6 @@
 import React, {useRef, useState} from "react";
 // import Card from "./typescript/components";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import styled from "styled-components";
 import {ChakraProvider} from "@chakra-ui/react";
 import {ThemeProvider} from "@emotion/react";
@@ -27,6 +28,7 @@ import {
 import Store from "./store";
 import {coffee, coin, plus} from "./yeonpick/Coin";
 import Priority from "./Priority";
+import Home from "./Home";
 
 const checkArray = [
     {id: 0, text: "대학생"},
@@ -157,7 +159,18 @@ function App() {
             <MobileContainer>
                 <ThemeProvider theme={theme}>
                     <ChakraProvider theme={extendedTheme}>
-                        <Priority title={"우선순위란?"} lowerArray={lowerArray} upperArray={upperArray} id={1}/>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route path="/" element={<Home/>}/>
+                                <Route path="/store"
+                                       element={<Store buyArray={buyArray} chargeArray={chargeArray}
+                                                       collectArray={collectArray}
+                                                       page={"스토어"}/>}/>
+                                <Route path="/priority"
+                                       element={<Priority title={"우선순위란?"} id={1} upperArray={upperArray}
+                                                          lowerArray={lowerArray}/>}/>
+                            </Routes>
+                        </BrowserRouter>
                     </ChakraProvider>
                 </ThemeProvider>
             </MobileContainer>
