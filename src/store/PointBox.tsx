@@ -18,7 +18,6 @@ const PointMainBox = styled.div`
   position: relative;
   width: 264px;
   height: 24px;
-  top: 115px;
   left: calc(50% - 360px/2 + 48px);
 `;
 
@@ -32,7 +31,6 @@ const UserPoint = styled.p`
   font-size: 16px;
   line-height: 24px;
   color: #000000;
-  
 `;
 
 const UserPointBox = styled.div`

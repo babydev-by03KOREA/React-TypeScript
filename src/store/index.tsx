@@ -6,6 +6,7 @@ import PointBox from "./PointBox";
 import PointCharge from "./PointCharge";
 import UsePoint from "./UsePoint";
 import CollectPoint from "./CollectPoint";
+import Margin from "../margin";
 
 type PricechargeArray = {
     id: number,
@@ -41,9 +42,10 @@ const Store = ({chargeArray, buyArray, collectArray ,page}: Props) => {
             <CarouselBox>
                 <Carousel/>
             </CarouselBox>
-            {/* MARGIN BOX */}
             <PointBox/>
+            <Margin type={"marginFourEightDiv"}/>
             <PointChargeTitle>포인트 충전하기</PointChargeTitle>
+            <Margin type={"marginTwoFour"}/>
             <PointChargeBox>
                 {
                     chargeArray.map((elem, index) => (
@@ -51,7 +53,9 @@ const Store = ({chargeArray, buyArray, collectArray ,page}: Props) => {
                     ))
                 }
             </PointChargeBox>
+            <Margin type={"marginFourEightDiv"}/>
             <BuyPointTitle>구매하기</BuyPointTitle>
+            <Margin type={"marginTwoFour"}/>
             <UsePointBox>
                 {
                     buyArray.map((elem, index) => (
@@ -60,7 +64,9 @@ const Store = ({chargeArray, buyArray, collectArray ,page}: Props) => {
                     ))
                 }
             </UsePointBox>
+            <Margin type={"marginFourEightDiv"}/>
             <CollectPointTitle>포인트 모으기</CollectPointTitle>
+            <Margin type={"marginTwoFour"}/>
             <CollectPointBox>
                 {
                     collectArray.map((elem, index) => (
@@ -68,6 +74,7 @@ const Store = ({chargeArray, buyArray, collectArray ,page}: Props) => {
                     ))
                 }
             </CollectPointBox>
+            <Margin type={"marginBottomPageTwo"}/>
         </React.Fragment>
     );
 };
@@ -77,12 +84,10 @@ const CarouselBox = styled.div`
   width: 360px;
   height: 160px;
   margin: auto;
-  top: 93px;
 `;
 
 const PointChargeTitle = styled.p`
   position: relative;
-  top: 187px;
   left: calc(50% - 360px / 2 + 48px);
   width: 114px;
   height: 28px;
@@ -98,7 +103,6 @@ const PointChargeBox = styled.div`
   position: relative;
   width: 264px;
   height: 304px;
-  top: 215px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -109,7 +113,6 @@ const PointChargeBox = styled.div`
 
 const BuyPointTitle = styled.p`
   position: relative;
-  top: 260px;
   left: calc(50% - 360px / 2 + 48px);
   width: 63px;
   height: 28px;
@@ -125,7 +128,6 @@ const UsePointBox = styled.div`
   position: relative;
   width: 258px;
   height: 168px;
-  top: 273px;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -135,11 +137,10 @@ const UsePointBox = styled.div`
 `;
 
 const CollectPointTitle = styled.p`
-  position: absolute;
+  position: relative;
   width: 98px;
   height: 28px;
   left: calc(50% - 360px / 2 + 48px);
-  top: 1042px;
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 600;
@@ -150,9 +151,7 @@ const CollectPointTitle = styled.p`
 
 const CollectPointBox = styled.div`
   position: relative;
-  top: 374px;
   left: calc(50% - 360px / 2 + 48px);
-  padding-bottom: 80px;
 `;
 
 export default Store;

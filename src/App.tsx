@@ -1,16 +1,9 @@
-import React, {useRef, useState} from "react";
-// import Card from "./typescript/components";
+import React from "react";
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import styled from "styled-components";
 import {ChakraProvider} from "@chakra-ui/react";
 import {ThemeProvider} from "@emotion/react";
 import {extendedTheme, theme} from "./style";
-import Join from "./hooks/join/join";
-import UserList from "./hooks/arrays/UserList";
-import CreateUser from "./hooks/useRef/CreateUser";
-import RadioButton from "./components/Radio";
-import ShopList from "./personal/ShopList";
-import AnimalButton from "./components/AnimalButton";
 import {
     animal01,
     animal02,
@@ -97,62 +90,6 @@ const upperArray = [
 ];
 
 function App() {
-    const [inputs, setInputs] = useState({
-        username: "",
-        email: "",
-    });
-
-    const {username, email} = inputs;
-
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target;
-        setInputs({
-            ...inputs,
-            [name]: value,
-        });
-    };
-
-    const [users, setUsers] = useState([
-        {
-            id: 1,
-            username: "velopert",
-            email: "public.velopert@gmail.com",
-        },
-        {
-            id: 2,
-            username: "tester",
-            email: "tester@example.com",
-        },
-        {
-            id: 3,
-            username: "liz",
-            email: "liz@example.com",
-        },
-    ]);
-
-    const [job, setJob] = useState<number[]>([]);
-    const [select, setSelected] = useState<number>(-1);
-    const nextId = useRef(4);
-    const [animalCheck, animalChecked] = useState<number>(-1);
-    const onCreate = () => {
-        const user = {
-            id: nextId.current,
-            username,
-            email,
-        };
-        setUsers(users.concat(user));
-
-        setInputs({
-            username: "",
-            email: "",
-        });
-        nextId.current += 1;
-    };
-
-    const [check, setCheck] = useState<string>(wantDating[0].id);
-    const [isCheck, setIsChecked] = useState<boolean>(false);
-    // <Store page="스토어" chargeArray={chargeArray} buyArray={buyArray} collectArray={collectArray} />
-    // <Priority title={"우선순위란?"} lowerArray={lowerArray} upperArray={upperArray}/>
 
     return (
         <Container>

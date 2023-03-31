@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {ChevronLeftIcon} from "@chakra-ui/icons";
+import {Link} from "react-router-dom";
 
 type Props = {
     text: string
@@ -9,7 +10,7 @@ type Props = {
 const BackBar = ({text}: Props) => {
     return (
         <BackMainBox>
-            <ChevronLeftIcon boxSize={6}/>
+            <Link to={"/"}><ChevronLeftIcon boxSize={6} /></Link>
             <BackSpan>{text}</BackSpan>
         </BackMainBox>
     );
