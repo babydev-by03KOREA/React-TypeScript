@@ -22,6 +22,7 @@ import Store from "./store";
 import {coffee, coin, plus} from "./yeonpick/Coin";
 import Priority from "./Priority";
 import Home from "./Home";
+import Request from "./api/Request";
 
 const checkArray = [
     {id: 0, text: "대학생"},
@@ -61,7 +62,9 @@ const chargeArray = [
     {id: 1, point: "3,000", real: "₩ 3,000"},
     {id: 2, point: "10,000", real: "₩ 10,000"},
     {id: 3, point: "20,000", real: "₩ 19,000"},
-    {id: 4, point: "30,000", real: "₩ 27,000"}
+    {id: 4, point: "30,000", real: "₩ 27,000"},
+    // {id: 5, point: "50,000", real: "₩ 42,500"},
+    // {id: 6, point: "80,000", real: "₩ 68,000"},
 ];
 
 const buyArray = [
@@ -106,6 +109,7 @@ function App() {
                                 <Route path="/priority"
                                        element={<Priority title={"우선순위란?"} id={1} upperArray={upperArray}
                                                           lowerArray={lowerArray}/>}/>
+                                <Route path="/api" element={<Request/>}/>
                             </Routes>
                         </BrowserRouter>
                     </ChakraProvider>
